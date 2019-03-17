@@ -1,0 +1,50 @@
+<!-- FOR FYP -->
+
+
+  
+  <form class="text-center border border-light p-5" [formGroup]="studentForm" (ngSubmit)="saveStudentDetails(studentForm.value)">
+
+    <p class="h4">LOGIN</p>
+    <center>
+    
+    <input mdbInputDirective #idInput class="form-control " placeholder="ID" type="text" formControlName="id" 
+    autofocus required><br>
+
+    
+    <input mdbInputDirective  #passwordInput [type]="hide ? 'password' : 'text'" formControlName="password" 
+     placeholder="******" class="form-control" required><br>
+
+    
+    <button mdbBtn color="danger"  type="submit" mdbWavesEffect>
+      Sign in <mdb-icon fas icon="sign-in-alt"></mdb-icon>
+    </button>
+    </center>
+
+  </form>
+
+
+<!-- FOR TESTING -->
+<!-- <div> -->
+  <!-- Default form subscription -->
+  <!-- <form class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">LOGIN</p> -->
+    <!-- <center> -->
+    <!-- Name -->
+    <!-- <input mdbInputDirective #idInput name="id" [(ngModel)]="student.id" class="form-control " placeholder="ID" type="text"
+    autofocus required><br> -->
+
+    <!-- password -->
+    <!-- <input mdbInputDirective #passwordInput [(ngModel)]="student.password" [type]="hide ? 'password' : 'text'"
+    name="password" placeholder="******" class="form-control" required><br> -->
+
+    <!-- Sign in button -->
+    <!-- <button mdbBtn color="danger" (click)="login(student)" type="button" mdbWavesEffect>
+      Sign in <mdb-icon fas icon="sign-in-alt"></mdb-icon>
+    </button>
+    </center> -->
+
+  <!-- </form> -->
+  <!-- Default form subscription -->
+<!-- </div> -->
+

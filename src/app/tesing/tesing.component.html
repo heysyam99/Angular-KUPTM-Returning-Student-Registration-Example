@@ -1,0 +1,44 @@
+
+        <div style="border-style:dotted; max-width: 100%; height: auto">
+          <div class="bar" style="border-style:dotted">
+            <input class="bar-input" type="radio" name="input" id="input_0" checked="false" disabled />
+            <div class="bar-view">
+              <label class="bar-button" for="input_0"></label>
+            </div>
+            <input class="bar-input" type="radio" name="input" id="input_1" checked="false" disabled />
+            <div class="bar-view">
+              <label class="bar-button" for="input_1"></label>
+            </div>
+            <input class="bar-input" type="radio" name="input" id="input_2" checked="true" (click)="nextPage()" />
+            <div class="bar-view">
+              <label class="bar-button" for="input_2"></label>
+            </div>
+            <input class="bar-input" type="radio" name="input" id="input_3" (click)="clickAble()" />
+            <div class="bar-view"><br>
+              <label class="bar-button" for="input_3"></label>
+            </div>
+          </div><br><br><br>
+
+          <form>
+            <h4>SECTION III: TO BE COMPLETED BY STUDENT</h4><br>
+            <h5> Select Image</h5>
+            <input type="file" (change)="onFileChanged($event)"><br><br>
+              <button mdbBtn color="blue" type="button" mdbWavesEffect >
+                Upload&nbsp;<mdb-icon fas icon="file-upload"></mdb-icon>
+              </button><br><br>
+            <label for="references" style="width: 350px;margin: 0 20px 0 0;">
+              <span style="display: block; margin: 0 0 3px; font-size: 1.2em;">References Number</span>
+              <input mdbInputDirective type="text" class="form-control" id="company" style="width: 350px; border: 1px solid #000; padding: 5px;"/>
+            </label>
+            <label for="amount" style="width: 350px; margin: 0 25px 0 0;">
+              <span style="display: block; margin: 0 0 3px; font-size: 1.2em;">Amount Paid</span>
+              <input mdbInputDirective type="text" class="form-control" id="contact" style="width: 350px; border: 1px solid #000; padding: 5px;" />
+            </label>
+            <label for="state" style="width: 350px;  margin: 0 20px 0 0;">
+                <span style="display: block; margin: 0 0 3px; font-size: 1.2em;">Date Paid</span>
+                <input mdbInputDirective class="form-control" type="date" style="width: 350px; border: 1px solid #000; padding: 5px;">
+              </label><br><br>
+              <button mdbBtn color="blue" (click)="login(student)" type="button" mdbWavesEffect >
+                Update <mdb-icon fas icon="user-edit"></mdb-icon>
+              </button>
+          </form>

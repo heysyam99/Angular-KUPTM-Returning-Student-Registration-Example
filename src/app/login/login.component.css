@@ -1,0 +1,35 @@
+.form-control {
+    max-width: 30%;
+}
+
+.h4 {
+    margin-bottom: 50px
+}
+
+.button {
+    padding: 10px;
+    margin: 0px;
+    background-color: red;
+    border-radius: 100px;
+    cursor: pointer;
+    border: 0px;
+}
+
+@media screen and (max-width: 450px) {
+    .form-control {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .form-control {
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .form-control {
+        max-width: 100%;
+    }
+}
+
