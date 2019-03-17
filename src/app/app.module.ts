@@ -13,7 +13,6 @@ import { LoginComponent } from './login/login.component';
 import { AddressComponent } from './address/address.component';
 import { FinanceComponent } from './finance/finance.component';
 import { AppRoutingModule } from './app-routing.module';
-import { TesingComponent } from './tesing/tesing.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { TesingComponent } from './tesing/tesing.component';
     HeaderComponent,
     LoginComponent,
     AddressComponent,
-    FinanceComponent,
-    TesingComponent,
+    FinanceComponent
   ],
   imports: [
     BrowserModule,
