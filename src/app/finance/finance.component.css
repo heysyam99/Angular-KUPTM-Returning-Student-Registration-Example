@@ -21,27 +21,6 @@
 .form h4 {
   color: #00008B;
 }
-.two-col {
-  overflow: hidden;/* Makes this div contain its floats */
-  max-width: 90%;
-}
-
-.two-col .col1,
-.two-col .col2 {
-  width: 49%;
-}
-
-.two-col .col1 {
-  float: left;
-}
-
-.two-col .col2 {
-  float: right;
-}
-
-.two-col label {
-  display: block;
-}
 
 .bar-input:checked ~ .bar-view:after {
   -webkit-transform: scaleX(1);
@@ -190,4 +169,21 @@ html, body {
   50% {
     opacity: 0.3;
   }
+}
+
+/* .modal-content {
+  position: relative; */
+  /* background-color: #fff; */
+  /* -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  max-height: 750px;
+  overflow: scroll;
+} */
+
+.modal {
+  overflow-y: scroll;
 }

@@ -1,50 +1,62 @@
-<!-- FOR FYP -->
+<body>
+<div class="cont" >
+<form class="text-center p-5" [formGroup]="studentForm"
+  (ngSubmit)="saveStudentDetails(studentForm.value)">
+
+  <p class="h4">LOGIN</p>
+  <center>
+
+    <input mdbInputDirective [mdbValidate]="false" #idInput class="form-control " placeholder="ID" type="text" formControlName="id"
+      autofocus required style="text-transform:uppercase"><br>
+
+    <input mdbInputDirective [mdbValidate]="false" formControlName="ic" placeholder="******" class="form-control" type="password"
+      id="defaultRegisterFormPassword" required><br>
 
 
-  
-  <form class="text-center border border-light p-5" [formGroup]="studentForm" (ngSubmit)="saveStudentDetails(studentForm.value)">
-
-    <p class="h4">LOGIN</p>
-    <center>
-    
-    <input mdbInputDirective #idInput class="form-control " placeholder="ID" type="text" formControlName="id" 
-    autofocus required><br>
-
-    
-    <input mdbInputDirective  #passwordInput [type]="hide ? 'password' : 'text'" formControlName="password" 
-     placeholder="******" class="form-control" required><br>
-
-    
-    <button mdbBtn color="danger"  type="submit" mdbWavesEffect>
+    <button mdbBtn color="danger" type="submit" mdbWavesEffect [disabled]="!studentForm.valid">
       Sign in <mdb-icon fas icon="sign-in-alt"></mdb-icon>
     </button>
-    </center>
+  </center>
+</form>
+</div>
+<div mdbModal #demoBasic="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-danger" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="heading lead">Oops !!</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="demoBasic.hide()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <li *ngFor="let message of errorMsg">
+                    {{ message }}
+                </li>
+            </div>
+        </div>
+    </div>
+</div>
 
-  </form>
+<button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()" mdbWavesEffect>Take Note</button>
 
-
-<!-- FOR TESTING -->
-<!-- <div> -->
-  <!-- Default form subscription -->
-  <!-- <form class="text-center border border-light p-5">
-
-    <p class="h4 mb-4">LOGIN</p> -->
-    <!-- <center> -->
-    <!-- Name -->
-    <!-- <input mdbInputDirective #idInput name="id" [(ngModel)]="student.id" class="form-control " placeholder="ID" type="text"
-    autofocus required><br> -->
-
-    <!-- password -->
-    <!-- <input mdbInputDirective #passwordInput [(ngModel)]="student.password" [type]="hide ? 'password' : 'text'"
-    name="password" placeholder="******" class="form-control" required><br> -->
-
-    <!-- Sign in button -->
-    <!-- <button mdbBtn color="danger" (click)="login(student)" type="button" mdbWavesEffect>
-      Sign in <mdb-icon fas icon="sign-in-alt"></mdb-icon>
-    </button>
-    </center> -->
-
-  <!-- </form> -->
-  <!-- Default form subscription -->
-<!-- </div> -->
-
+<div mdbModal #basicModal="mdbModal" class="modal fade bottom" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div class="modal-dialog modal-frame modal-bottom" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Please Take Note !!</h4>
+      </div>
+      <div class="modal-body">
+        For best experience, you are recommended to use Google Chrome on your Personal Computer (Laptop, PC, etc..)
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="basicModal.hide()" mdbWavesEffect>Close</button>
+        <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Save!</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+</body>

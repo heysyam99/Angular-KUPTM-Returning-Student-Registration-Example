@@ -1,0 +1,71 @@
+<div fxLayout="column" fxLayoutAlign="space-around center" style="max-width: 100%; height: auto"></div>
+  <div class="bar">
+      <input class="bar-input" type="radio" name="input" id="input_0" checked="false" disabled/>
+      <div class="bar-view">
+        <label class="bar-button" for="input_0"></label>
+      </div>
+      <input class="bar-input" type="radio" name="input" id="input_1" checked="false" disabled/>
+      <div class="bar-view">
+        <label class="bar-button" for="input_1"></label>
+      </div>
+      <input class="bar-input" type="radio" name="input" id="input_2" checked="true" (click)="clickAbleB()">
+      <div class="bar-view">
+        <label class="bar-button" for="input_2"></label>
+      </div>
+      <input class="bar-input" type="radio" name="input" id="input_3"  (click)="clickAbleA()"/>
+      <div class="bar-view"><br>
+      <label class="bar-button" for="input_3"></label>
+  </div>
+</div><br><br><br>
+
+<!-- For FYP Project -->
+
+<div fxLayout="column" fxLayoutAlign="space-around center" style="margin-bottom: 5%">
+  <center><h2>Residential Address/ Current Address</h2></center>
+</div>
+
+    
+    <form class="formtest" [formGroup]="studentForm" (ngSubmit)="saveStudentDetails(studentForm.value)">
+        <h4>SECTION II: TO BE COMPLETED BY STUDENT</h4><br>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <h5>Address 1</h5>
+            <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control" style="border:1px solid; text-transform:uppercase"
+            formControlName="address1">
+          </div>
+          <div class="col-md-6 mb-3">
+              <h5>Address 2</h5>
+              <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control" style="border:1px solid; text-transform:uppercase"
+              formControlName="address2">
+            </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="col-3">
+            <h5>Postcode</h5>
+            <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control" id="company"
+            style="border: 1px solid #000; padding: 5px;" formControlName="postcode" />
+          </div>
+          <div class="col-3">
+              <h5>City</h5>
+              <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control" id="company"
+              style="border: 1px solid #000; padding: 5px; text-transform:uppercase" formControlName="city" />
+          </div>
+          <div class="col-3">
+              <h5>State</h5>
+              <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control" id="company"
+              style="border: 1px solid #000; padding: 5px; text-transform:uppercase" formControlName="state" />
+          </div>
+          <div class="col-3">
+              <h5>Country</h5>
+              <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control" id="company"
+              style="border: 1px solid #000; padding: 5px; text-transform:uppercase" formControlName="country" />
+          </div>
+        </div>
+      <br>
+      <br>
+    <button mdbBtn color="blue" type="submit" mdbWavesEffect>
+      Update <mdb-icon fas icon="user-edit"></mdb-icon>
+    </button>
+  </form>
+    

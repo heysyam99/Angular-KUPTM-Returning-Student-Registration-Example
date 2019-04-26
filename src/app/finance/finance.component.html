@@ -1,49 +1,109 @@
 <div fxLayout="column" fxLayoutAlign="space-around center" style="max-width: 100%; height: auto"></div>
-  <div class="bar">
-      <input class="bar-input" type="radio" name="input" id="input_0" checked="false" disabled/>
-      <div class="bar-view">
-        <label class="bar-button" for="input_0"></label>
-      </div>
-      <input class="bar-input" type="radio" name="input" id="input_1" checked="false" disabled/>
-      <div class="bar-view">
-        <label class="bar-button" for="input_1"></label>
-      </div>
-      <input class="bar-input" type="radio" name="input" id="input_2" checked="true" >
-      <div class="bar-view">
-        <label class="bar-button" for="input_2"></label>
-      </div>
-      <input class="bar-input" type="radio" name="input" id="input_3"  (click)="clickAble()"/>
-      <div class="bar-view"><br>
-      <label class="bar-button" for="input_3"></label>
+<div class="bar">
+  <input class="bar-input" type="radio" name="input" id="input_0" checked="true" disabled />
+  <div class="bar-view">
+    <label class="bar-button" for="input_0"></label>
+  </div>
+  <input class="bar-input" type="radio" name="input" id="input_1" checked="true" disabled />
+  <div class="bar-view">
+    <label class="bar-button" for="input_1"></label>
+  </div>
+  <input class="bar-input" type="radio" name="input" id="input_2" (click)="clickAbleB()">
+  <div class="bar-view">
+    <label class="bar-button" for="input_2"></label>
+  </div>
+  <input class="bar-input" type="radio" name="input" id="input_3" (click)="clickAbleA()" />
+  <div class="bar-view"><br>
+    <label class="bar-button" for="input_3"></label>
   </div>
 </div><br><br><br>
 
 <div fxLayout="column" fxLayoutAlign="space-around center">
-  <center><h2>Finance Division: Proof of Registration Payment</h2></center>
+  <center>
+    <h2>Finance Division: Proof of Registration Payment</h2>
+  </center>
 </div><br><br>
 
 <div class="form">
-          <form>
-            <h4>SECTION III: TO BE COMPLETED BY STUDENT</h4><br>
-            <h5> Select Image</h5>
-            <input type="file" (change)="onFileChanged($event)"><br><br>
-              <button mdbBtn color="blue" type="button" mdbWavesEffect >
-                Upload&nbsp;<mdb-icon fas icon="file-upload"></mdb-icon>
-              </button><br><br>
-            <label for="references" style="width: 350px;margin: 0 20px 0 0;">
-              <span style="display: block; margin: 0 0 3px; font-size: 1.2em;">References Number</span>
-              <input mdbInputDirective type="text" class="form-control" id="company" style="width: 350px; border: 1px solid #000; padding: 5px;"/>
-            </label>
-            <label for="amount" style="width: 350px; margin: 0 25px 0 0;">
-              <span style="display: block; margin: 0 0 3px; font-size: 1.2em;">Amount Paid</span>
-              <input mdbInputDirective type="text" class="form-control" id="contact" style="width: 350px; border: 1px solid #000; padding: 5px;" />
-            </label>
-            <label for="state" style="width: 350px;  margin: 0 20px 0 0;">
-                <span style="display: block; margin: 0 0 3px; font-size: 1.2em;">Date Paid</span>
-                <input mdbInputDirective class="form-control" type="date" style="width: 350px; border: 1px solid #000; padding: 5px;">
-              </label><br><br>
-              <button mdbBtn color="blue" (click)="login(student)" type="button" mdbWavesEffect >
-                Update <mdb-icon fas icon="user-edit"></mdb-icon>
-              </button>
-          </form>
-         </div>
+  <form [formGroup]="uploadForm">
+    <h4>SECTION III: TO BE COMPLETED BY STUDENT</h4><br>
+    <h5> Select Image</h5>
+    <img style="width:250px; height: 300px" [src]="imageUrl">&nbsp;&nbsp;
+    <input type="file" formControlName="filename" (change)="handleFileInput($event.target.files)"
+      placeholder="Upload file" accept="image/*">
+    <button mdbBtn color="blue" (click)="uploadFileToActivity()" type="submit" mdbWavesEffect>
+      Upload&nbsp;<mdb-icon fas icon="file-upload"></mdb-icon>
+    </button><br><br>
+  </form>
+  <form [formGroup]="studentForm" (ngSubmit)="saveStudentDetails(studentForm.value)">
+    <!-- <label for="references" style="width: 350px;margin: 0 20px 0 0;">
+      <span style="display: block; margin: 0 0 3px; font-size: 1.2em;">References Number</span>
+      <input mdbInputDirective type="text" class="form-control" formControlName="refNumber"
+        style="width: 350px; border: 1px solid #000; padding: 5px;" />
+    </label>
+    <label for="amount" style="width: 350px; margin: 0 25px 0 0;">
+      <span style="display: block; margin: 0 0 3px; font-size: 1.2em;">Amount Paid</span>
+      <input mdbInputDirective type="text" class="form-control" formControlName="amount"
+        style="width: 350px; border: 1px solid #000; padding: 5px;" />
+    </label>
+    <label for="state" style="width: 350px;  margin: 0 20px 0 0;">
+      <span style="display: block; margin: 0 0 3px; font-size: 1.2em;">Date Paid</span>
+      <input mdbInputDirective class="form-control" type="date" formControlName="datePaid"
+        style="width: 350px; border: 1px solid #000; padding: 5px;">
+    </label><br><br> -->
+    <div class="form-row">
+      <div class="col-3">
+        <label>References Number</label>
+        <input mdbInputDirective type="text" [mdbValidate]="false" class="form-control" formControlName="refNumber"
+          style="width: 350px; border: 1px solid #000; padding: 5px;" />
+      </div>
+      <div class="col-3">
+        <label>Amount Paid</label>
+        <input mdbInputDirective type="text" [mdbValidate]="false" class="form-control" formControlName="amount"
+          style="width: 350px; border: 1px solid #000; padding: 5px;" />
+      </div>
+      <div class="col-3">
+        <label>Date Paid</label>
+        <input mdbInputDirective class="form-control" [mdbValidate]="false" type="date" formControlName="datePaid"
+          style="width: 350px; border: 1px solid #000; padding: 5px;">
+      </div>
+      <div class="col-3">
+        <a (click)="showAndHideModal()" style="color: blue; margin-top: 5px">How to pay?</a>
+      </div>
+    </div>
+    <br>
+    <button mdbBtn color="blue" type="submit" mdbWavesEffect>
+      Update <mdb-icon fas icon="user-edit"></mdb-icon>
+    </button>
+  </form>
+</div>
+
+<div mdbModal #demoBasic="mdbModal" class="modal fade top " id="myModals" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-notify modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="heading lead">INSTRUCTION</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="demoBasic.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ol>
+          <h5><strong>HOW TO MAKE PAYMENT WITH JOMPAY?</strong></h5><br>
+          <img src="../../assets/JomPay.png" style="margin-left: 25%; width:150px; height: 150px"><br><br>
+          <li style="text-align: justify;">Log on to your preffered internet or mobile banking and look for JomPAY</li>
+          <br>
+          <li>Enter following details :</li><br>
+          <img src="../../assets/JomPayRef.png"><br><br>
+          <li>Example:</li><br>
+          <img style="width:200px; height: 250px" src="../../assets/example.png"><br><br>
+          <li style="text-align: justify;">Please upload and enter your JomPAY <strong>references number, </strong>
+            <strong>date of payment, </strong>and <strong>amount of payment</strong> in registration website for our
+            references.
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

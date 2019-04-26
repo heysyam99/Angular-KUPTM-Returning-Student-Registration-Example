@@ -1,3 +1,7 @@
+.cont {
+    height: 94%;
+}
+
 .form-control {
     max-width: 30%;
 }
@@ -15,6 +19,7 @@
     border: 0px;
 }
 
+
 @media screen and (max-width: 450px) {
     .form-control {
         max-width: 100%;
@@ -25,11 +30,18 @@
     .form-control {
         max-width: 50%;
     }
-}
+} 
 
-@media screen and (max-width: 375px) {
+ @media screen and (max-width: 375px) {
     .form-control {
         max-width: 100%;
     }
 }
+
+@media screen and (max-width: 325px) {
+    .form-control {
+        max-width: 100%;
+    }
+}
+
 

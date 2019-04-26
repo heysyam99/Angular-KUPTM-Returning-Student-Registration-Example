@@ -14,13 +14,20 @@ import { AddressComponent } from './address/address.component';
 import { FinanceComponent } from './finance/finance.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
+import { CrudService } from './service/crud.service';
+import { RentAddressComponent } from './rent-address/rent-address.component';
+import { VerifyComponent } from './verify/verify.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
     AddressComponent,
-    FinanceComponent
+    FinanceComponent,
+    RentAddressComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +37,9 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [CrudService, AuthGuard],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

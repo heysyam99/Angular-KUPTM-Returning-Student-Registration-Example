@@ -20,6 +20,7 @@
 
 h4 {
   color: #00008B;
+  margin-left: 3%;
 }
 .two-col {
   overflow: hidden;/* Makes this div contain its floats */
@@ -192,9 +193,45 @@ html, body {
   }
 }
 
-/* TEST */
+@media screen and (max-width: 1024px) {
+  .two-col {
+    overflow: hidden;/* Makes this div contain its floats */
+    max-width: 90%;
+    margin-bottom: 8px;
+  }
+  
+  .two-col .col1,
+  .two-col .col2 {
+    width: 49%;
+  }
+  
+  .two-col .col1 {
+    float: left;
+  }
+  
+  .two-col .col2 {
+    float: right;
+  }
+  
+  .two-col label {
+    display: block;
+  }
+}
 
-.formtest {
-  margin-left: 3%;
-  margin-right: 3%;
+@media screen and (max-width: 325px) {
+  .bar {
+    margin-top: 35px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .bar {
+    margin-top: 35px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .bar {
+    margin-top: 35px;
+  }
 }
